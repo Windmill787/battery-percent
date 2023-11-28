@@ -5,10 +5,13 @@ from dotenv import load_dotenv
 
 battery = psutil.sensors_battery()
 percent = int(battery.percent)
-message = f"Battery percent is {percent}%"
+status = battery.power_plugged
+
+charging = "Charging" if status else "Not Charging"
+message = f"Battery percent is {percent}% and it is {charging}"
 print(message)
 
-if percent <= 20:
+if percent <= 20 and status is False:
     load_dotenv()
     bot_key = os.getenv('BOT_KEY')
     chat_id = os.getenv('CHAT_ID')
