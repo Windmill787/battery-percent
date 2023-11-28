@@ -4,7 +4,6 @@ import telebot
 from dotenv import load_dotenv
 
 battery = psutil.sensors_battery()
-plugged = battery.power_plugged
 percent = int(battery.percent)
 
 if percent <= 20:
