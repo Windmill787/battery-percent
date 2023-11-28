@@ -7,7 +7,7 @@ battery = psutil.sensors_battery()
 plugged = battery.power_plugged
 percent = int(battery.percent)
 
-if percent <= 98:
+if percent <= 20:
     load_dotenv()
     bot_key = os.getenv('BOT_KEY')
     chat_id = os.getenv('CHAT_ID')
