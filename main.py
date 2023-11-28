@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 
 battery = psutil.sensors_battery()
 percent = int(battery.percent)
+message = f"Battery percent is {percent}%"
+print(message)
 
 if percent <= 20:
     load_dotenv()
@@ -12,4 +14,4 @@ if percent <= 20:
     chat_id = os.getenv('CHAT_ID')
 
     bot = telebot.TeleBot(bot_key)
-    bot.send_message(chat_id, f"Battery percent is {percent}%")
+    bot.send_message(chat_id, message)
