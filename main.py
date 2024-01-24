@@ -3,7 +3,6 @@ import os
 import telebot
 from dotenv import load_dotenv
 
-
 battery = psutil.sensors_battery()
 percent = int(battery.percent)
 status = battery.power_plugged
